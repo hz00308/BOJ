@@ -22,22 +22,16 @@ class Solution {
                 if(curr_string.equals(front)) { // 동일한 문자열 
                     cnt++;
                 } else { // 다른 문자열 
-                    if(cnt==1) {
-                        curr_len += curr_string.length();
-                    } else {
-                        curr_len += curr_string.length() + String.valueOf(cnt).length();
-                    }
+                    curr_len += curr_string.length();
+                    if(cnt > 1) curr_len += String.valueOf(cnt).length();
                     curr_string = front;
                     cnt = 1;
                 }
-                if(q.isEmpty()) { // 마지막 요소 처리
-                    if(cnt==1) {
-                        curr_len += curr_string.length();
-                    } else {
-                        curr_len += curr_string.length() + String.valueOf(cnt).length();
-                    }
-                }
             }
+            // 마지막 요소 처리 
+            curr_len += curr_string.length();
+            if(cnt > 1) curr_len += String.valueOf(cnt).length();
+            
             if(curr_len < answer) answer = curr_len;
         }
         return answer;
