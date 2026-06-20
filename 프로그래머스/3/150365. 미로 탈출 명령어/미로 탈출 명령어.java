@@ -5,7 +5,9 @@ class Solution {
         int[] dc = {0, -1, 1, 0};
         String[] ds = {"d", "l", "r", "u"};
         Queue<String[]> q = new ArrayDeque<>();
-        int[][] visited = new int[n+1][m+1]; // 문자열 길이 저장 (같은 길이 문자열은 사전순 후순위이므로, 더 긴 문자열인 경우에만 재방문 가능하도록 함)
+        int[][] visited = new int[n+1][m+1]; // 최대 문자열 길이 저장
+        // 같은 길이는 이미 사전순으로 가장 빠른 경로가 방문했으므로
+        // 더 긴 경우만 재방문
         
         q.offer(new String[] {String.valueOf(x), String.valueOf(y), ""});
         //visited[x][y] = 0;
